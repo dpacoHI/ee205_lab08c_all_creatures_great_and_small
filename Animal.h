@@ -28,9 +28,9 @@ public:
 
     Animal(Gender gender);
 
-    Animal(const std::string &species, Gender gender);
+    Animal(const std::string &newSpecies, Gender gender);
 
-    Animal(const std::string &species, Gender gender, float weight);
+    Animal(const std::string &newSpecies, Gender gender, float weight);
 
     Animal(const std::string &species, float weight);
 
@@ -40,11 +40,11 @@ public:
 
     Gender getGender() const;
 
-    void setGender(Gender gender);
+    void setGender(Gender newGender);
 
     float getWeight() const;
 
-    void setWeight(float weight);
+    void setWeight(float newWeight);
 
     void printInfo();
 
@@ -55,7 +55,14 @@ protected:
     std::string species;                           // Required
     enum Gender gender = UNKNOWN_GENDER;           // Default to UNKNOWN_GENDER
     float weight = UNKNOWN_WEIGHT;                 // -1 is Unknown. ALl other weights must be >0
+
+    bool validateWeight( const float weight );
+    bool validateSpecies( const std::string newSpecies );
+
+private:
+    void setSpecies( const std::string newSpecies );
 };
+
 
 
 
